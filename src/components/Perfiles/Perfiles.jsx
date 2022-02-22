@@ -12,7 +12,7 @@ export default function Perfiles({ session }) {
     const [username, setUsername] = useState(null);
     const [avatar_url, setAvatar_url] = useState(null);
     const [website, setWebsite] = useState(null);
-    const { i18n, t } = useTranslation();
+    const { t } = useTranslation();
    
     useEffect(() => {
         getPerfiles();
