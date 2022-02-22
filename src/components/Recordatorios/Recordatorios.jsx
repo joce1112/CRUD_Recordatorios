@@ -54,11 +54,11 @@ const customStyles = {
 
 export default function Recordatorios({ session }) {
     const {  t } = useTranslation();
-
+    
     const [loading, setLoading] = useState(true);
     // const [id_user_fk, setId_user_fk] = useState(null);
     const [title, setTitle] = useState(null);
-    const [created_at] = useState(null);
+    const [created_at, setCreated_at] = useState(null);
     const [contain, setContain] = useState(null);
     const [dateMemories, setDateMemories] = useState(null);
     const [dataTable, setDataTable] = useState([]);
@@ -77,10 +77,7 @@ export default function Recordatorios({ session }) {
         setIsOpen(false);
       
       }
-    // useEffect(() => {
-    //     getMemories();
-    // }, [session]);
-
+ 
     //Extraemos los recordatorios
     async function getMemories() {
         try {
@@ -208,7 +205,7 @@ console.log(updates)
                 <input
                     id="titulo"
                     type="text"
-                    value={session.user.title}
+                    value={title || ""}
                     onChange={(e) => setTitle(e.target.value)} />
             </div>
 
@@ -217,7 +214,7 @@ console.log(updates)
                 <input
                     id="contenido"
                     type="text"
-                    value={session.user.contain}
+                    value={contain || ""}
                     onChange={(e) => setContain(e.target.value)} />
             </div>
             <div>
@@ -225,10 +222,17 @@ console.log(updates)
                 <input
                     id="fecharecordatorio"
                     type="Date"
-                    value={session.user.dateMemories}
+                    value={dateMemories || ""}
                     onChange={(e) => setDateMemories(e.target.value)} />
             </div>
-
+            <div>
+                <label htmlFor="contenido"><p>{t("Countent")}</p></label>
+                <input
+                    id="contenido"
+                    type="text"
+                    value={created_at || ""}
+                    onChange={(e) => setCreated_at(e.target.value)} />
+            </div>
 
             <div>
                 <Button
@@ -239,9 +243,8 @@ console.log(updates)
                             title, dateMemories, contain
                         })
                     }
-                    disabled={loading}
-                >
-                    {loading ?<p>{t("Loading ...")}</p>  : <p>{t("UPDATE")}</p>}
+                    // disabled={loading}
+                >Create
                 </Button>
 
             </div>
@@ -315,7 +318,7 @@ console.log(updates)
                                 <StyledTableCell align="right">{t("Countent")}&nbsp;</StyledTableCell>
                                 <StyledTableCell align="right">{t("Reminder Date")}&nbsp;</StyledTableCell>
                                 <StyledTableCell align="right">{t("Creation date")}&nbsp;</StyledTableCell>
-                                <StyledTableCell align="right">{t("Operation")}&nbsp;</StyledTableCell>
+                                <StyledTableCell align="right">{t("Operation1")}&nbsp;</StyledTableCell>
                                 <StyledTableCell align="right">{t("Operation")}&nbsp;</StyledTableCell>
 
                             </TableRow>
