@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { supabase } from "../../config/supabaseClient";
 import AppBar from '../../components/AppBar';
 import { Button } from "@mui/material";
@@ -53,14 +53,12 @@ const customStyles = {
   
 
 export default function Recordatorios({ session }) {
-    const { i18n, t } = useTranslation();
-    const changeLaguage = (language) => {
-      i18n.changeLanguage(language);
-    };
+    const {  t } = useTranslation();
+
     const [loading, setLoading] = useState(true);
-    const [id_user_fk, setId_user_fk] = useState(null);
+    // const [id_user_fk, setId_user_fk] = useState(null);
     const [title, setTitle] = useState(null);
-    const [created_at, setCreated_at] = useState(null);
+    const [created_at] = useState(null);
     const [contain, setContain] = useState(null);
     const [dateMemories, setDateMemories] = useState(null);
     const [dataTable, setDataTable] = useState([]);
@@ -79,9 +77,9 @@ export default function Recordatorios({ session }) {
         setIsOpen(false);
       
       }
-    useEffect(() => {
-        getMemories();
-    }, [session]);
+    // useEffect(() => {
+    //     getMemories();
+    // }, [session]);
 
     //Extraemos los recordatorios
     async function getMemories() {

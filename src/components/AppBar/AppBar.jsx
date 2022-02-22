@@ -5,10 +5,8 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
 
 const Navbar = () => {    
-    const { i18n, t } = useTranslation();
-    const changeLaguage = (language) => {
-      i18n.changeLanguage(language);
-    };
+    const { t } = useTranslation();
+    
     return (
         
         <div>
