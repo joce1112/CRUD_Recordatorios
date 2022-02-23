@@ -31,9 +31,15 @@ const Navbar = () => {
                         <p>{t("HOME")}</p>
                          </Link>
                         </Typography>
-
+                        
                         <Button color="inherit" onClick={() => supabase.auth.signOut()}>
                         <p>{t("Exit")}</p>
+                       
+                    </Button>
+                    <Button         
+                    href="https://github.com/joce1112/CRUD_Recordatorios"        
+                    >
+                    <p>{t("Repository")}</p> 
                     </Button>
                 
                                 <Button color="inherit" >
@@ -56,9 +62,9 @@ const Navbar = () => {
                                 <Avatar alt="J" src="/static/images/avatar/2.jpg" />
                             </IconButton>
                         </Tooltip>
-
+                        
                     </Toolbar>
-
+                    
                 </AppBar>
             </Box>
            </div>

@@ -4,7 +4,7 @@ import us from "../../../src/assets/images/us.png";
 import mx from "../../../src/assets/images/mx.png";
 import "../../App.css";
 import { useTranslation } from "react-i18next";
-import { Button, Link } from '@mui/material';
+import { Button } from '@mui/material';
 
 
 export default function Home() {
@@ -15,7 +15,7 @@ const { i18n, t } = useTranslation();
   };
     return (        
         <div className="form-widget">  
-        <Link href='https://github.com/joce1112/CRUD_Recordatorios'></Link>          
+        
         <AppBar/>  
         <div className="App">
       <header className="App-header">
@@ -44,7 +44,9 @@ const { i18n, t } = useTranslation();
           >
             US
           </Button>
+          
         </div>
+      
       </header>
     </div>
         </div>
